@@ -2,6 +2,12 @@ body{
 background-color: rgb(237, 173, 100);
 font-family: cursive;
 }
+
+.align{
+    font-size: 3em;
+    text-align: center;
+}
+
 .box{
     border: 2px solid; 
     padding:1em;
@@ -22,6 +28,7 @@ font-family: cursive;
 }
 
 .Contacts {
+    text-align: center;
     background-color: #90be6d;
 }
 
