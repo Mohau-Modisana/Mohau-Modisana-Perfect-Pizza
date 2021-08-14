@@ -26,6 +26,7 @@ font-family: cursive;
     padding-left: 2em;  
     padding-right: 2em; 
     align-items: baseline;
+    border-radius: 0.5em;
 }
 
 .rad{
@@ -86,7 +87,7 @@ font-family: cursive;
     border: 2px solid; 
     padding:1em;
     margin: 1em; 
-    border-radius: 0.5em;
+    border-radius: 1em;
 }
 
 @media (min-width:720px){
