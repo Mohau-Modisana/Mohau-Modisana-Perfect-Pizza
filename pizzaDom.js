@@ -34,6 +34,8 @@ const buymedium = document.querySelector(".buymedium");
 //reference buy large pizza
 const buylarge = document.querySelector(".buylarge");
 
+const cart = document.querySelector(".cart");
+
 //check out section
 check_out.addEventListener('click', function(){
     check_out.classList.toggle("paybox");
@@ -44,8 +46,6 @@ check_out.addEventListener('click', function(){
     });
 });
 
-//initializing
-var totalcartcost=0;
 
             //SMALL PIZZA CART
 
@@ -58,11 +58,11 @@ var counter=1;
 
 buysmall.addEventListener('click', function(){
     if (buysmall){
+        cart.classList.remove("hidden");
         smll +=smallprice;
         numsmallpizza +=counter;
-    smallnum.innerHTML="(" + numsmallpizza +")";
-    smallTotal.innerHTML="R" + smll.toFixed(2);
-
+        smallnum.innerHTML="(" + numsmallpizza +")";
+        smallTotal.innerHTML="R" + smll.toFixed(2);
     }
 
     totalC=smll+medium+large;
@@ -70,12 +70,13 @@ buysmall.addEventListener('click', function(){
 
 });
 
+
     radioplus1.addEventListener('click', function(){
         //radioplus1.classList.toggle("paybox");
         if (radioplus1){
             smll +=smallprice;
             numsmallpizza +=counter;
-    smallnum.innerHTML="(" + numsmallpizza +")";
+        smallnum.innerHTML="(" + numsmallpizza +")";
         smallTotal.innerHTML="R" + smll.toFixed(2);
         }
 
@@ -88,12 +89,18 @@ buysmall.addEventListener('click', function(){
         //radiominus1.classList.toggle("paybox");
         smll -=msnall;
         numsmallpizza -=counter;
-    smallnum.innerHTML="(" + numsmallpizza +")";
+        smallnum.innerHTML="(" + numsmallpizza +")";
         smallTotal.innerHTML="R" + smll.toFixed(2);
         }
-
-            totalC=smll+medium+large;
+        totalC=smll+medium+large;
         totalcosts.innerHTML="R" + totalC.toFixed(2);
+
+        setTimeout(function(){
+            if(smll==0 && totalC==0){       
+        cart.classList.add('hidden');
+            }
+        }, 3000);
+
     });
 
             //MEDIUM PIZZA CART
@@ -107,6 +114,7 @@ var nummediumpizza=0;
 buymedium.addEventListener('click', function(){
     //radioplus2.classList.toggle("paybox");
     if(buymedium){
+    cart.classList.remove("hidden");
     medium +=addmedium;
     nummediumpizza +=counter;
     mediumnum.innerHTML="(" + nummediumpizza +")";
@@ -138,6 +146,13 @@ radiominus2.addEventListener('click', function(){
     }
     totalC=smll+medium+large;
     totalcosts.innerHTML="R" + totalC.toFixed(2);
+
+    setTimeout(function(){
+        if(medium==0 && totalC==0){        
+    cart.classList.add('hidden');
+        }
+    }, 3000);
+
 });
 
         //LARGE PIZZA CART
@@ -150,6 +165,7 @@ var numlargepizza=0;
 buylarge.addEventListener('click', function(){
     //radioplus3.classList.toggle("paybox");
     if(buylarge){
+        cart.classList.remove("hidden");
         large +=addlarge;
         numlargepizza +=counter;
         largenum.innerHTML="(" + numlargepizza +")";
@@ -157,6 +173,7 @@ buylarge.addEventListener('click', function(){
     }
     totalC=smll+medium+large;
     totalcosts.innerHTML="R" + totalC.toFixed(2);
+
 });
 
 radioplus3.addEventListener('click', function(){
@@ -179,17 +196,14 @@ radiominus3.addEventListener('click', function(){
         largenum.innerHTML="(" + numlargepizza +")";
         largeTotal.innerHTML="R" + large.toFixed(2);
     }
-
     totalC=smll+medium+large;
     totalcosts.innerHTML="R" + totalC.toFixed(2);
+
+    setTimeout(function(){
+        if(large==0 && totalC==0){        
+    cart.classList.add('hidden');
+        }
+    }, 3000);
+
 });
-
-            //CART TOTAL COST 
-
-
-
-//
-const callTotalSettings = document.querySelector(".callTotalSettings");
-const smsTotalSettings = document.querySelector(".smsTotalSettings");
-const totalSettings = document.querySelector(".totalSettings");
 
