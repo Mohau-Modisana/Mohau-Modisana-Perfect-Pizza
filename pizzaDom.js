@@ -4,16 +4,19 @@ const hide = document.querySelector(".hide");
 const pay = document.querySelector(".pay")
 
 //reference small pizza
+const smallnum = document.querySelector(".smallnum");
 const radioplus1 = document.querySelector(".radioplus1");
 const radiominus1 = document.querySelector(".radiominus1");
 const smallTotal = document.querySelector(".smallTotal");
 
 //reference medium pizza
+const mediumnum = document.querySelector(".mediumnum");
 const radioplus2 = document.querySelector(".radioplus2");
 const radiominus2 = document.querySelector(".radiominus2");
 const mediumTotal = document.querySelector(".mediumTotal");
 
 //reference large pizza
+const largenum = document.querySelector(".largenum");
 const radioplus3 = document.querySelector(".radioplus3");
 const radiominus3 = document.querySelector(".radiominus3");
 const largeTotal = document.querySelector(".largeTotal");
@@ -50,21 +53,29 @@ var totalcartcost=0;
 var smll=0;
 var smallprice=49.00;
 var msnall=49.00;
+var numsmallpizza=0;
+var counter=1;
 
 buysmall.addEventListener('click', function(){
     if (buysmall){
         smll +=smallprice;
+        numsmallpizza +=counter;
+    smallnum.innerHTML="(" + numsmallpizza +")";
     smallTotal.innerHTML="R" + smll.toFixed(2);
+
     }
 
     totalC=smll+medium+large;
     totalcosts.innerHTML="R" + totalC.toFixed(2);
+
 });
 
     radioplus1.addEventListener('click', function(){
         //radioplus1.classList.toggle("paybox");
         if (radioplus1){
             smll +=smallprice;
+            numsmallpizza +=counter;
+    smallnum.innerHTML="(" + numsmallpizza +")";
         smallTotal.innerHTML="R" + smll.toFixed(2);
         }
 
@@ -76,6 +87,8 @@ buysmall.addEventListener('click', function(){
         if (radiominus1 && smll>0){
         //radiominus1.classList.toggle("paybox");
         smll -=msnall;
+        numsmallpizza -=counter;
+    smallnum.innerHTML="(" + numsmallpizza +")";
         smallTotal.innerHTML="R" + smll.toFixed(2);
         }
 
@@ -89,11 +102,14 @@ buysmall.addEventListener('click', function(){
 var medium=0;
 var addmedium=89.00;
 var minusmedium=89.00;
+var nummediumpizza=0;
 
 buymedium.addEventListener('click', function(){
     //radioplus2.classList.toggle("paybox");
     if(buymedium){
     medium +=addmedium;
+    nummediumpizza +=counter;
+    mediumnum.innerHTML="(" + nummediumpizza +")";
     mediumTotal.innerHTML="R" + medium.toFixed(2);
     }
     totalC=smll+medium+large;
@@ -104,6 +120,8 @@ radioplus2.addEventListener('click', function(){
     //radioplus2.classList.toggle("paybox");
     if(radioplus2){
     medium +=addmedium;
+    nummediumpizza +=counter;
+    mediumnum.innerHTML="(" + nummediumpizza +")";
     mediumTotal.innerHTML="R" + medium.toFixed(2);
     }
     totalC=smll+medium+large;
@@ -114,6 +132,8 @@ radiominus2.addEventListener('click', function(){
     //radiominus2.classList.toggle("paybox");
     if(radiominus2 && medium>0){
     medium -=addmedium;
+    nummediumpizza -=counter;
+    mediumnum.innerHTML="(" + nummediumpizza +")";
     mediumTotal.innerHTML="R" + medium.toFixed(2);
     }
     totalC=smll+medium+large;
@@ -125,11 +145,14 @@ radiominus2.addEventListener('click', function(){
 //add/subtr for large pizza
 var large=0;
 var addlarge=129.00;
+var numlargepizza=0;
 
 buylarge.addEventListener('click', function(){
     //radioplus3.classList.toggle("paybox");
     if(buylarge){
         large +=addlarge;
+        numlargepizza +=counter;
+        largenum.innerHTML="(" + numlargepizza +")";
         largeTotal.innerHTML="R" + large.toFixed(2);
     }
     totalC=smll+medium+large;
@@ -140,6 +163,8 @@ radioplus3.addEventListener('click', function(){
     //radioplus3.classList.toggle("paybox");
     if(radioplus3){
         large +=addlarge;
+        numlargepizza +=counter;
+        largenum.innerHTML="(" + numlargepizza +")";
         largeTotal.innerHTML="R" + large.toFixed(2);
     }
     totalC=smll+medium+large;
@@ -150,6 +175,8 @@ radiominus3.addEventListener('click', function(){
     //radiominus3.classList.toggle("paybox");
     if(radioplus3 && large>0){
         large -=addlarge;
+        numlargepizza -=counter;
+        largenum.innerHTML="(" + numlargepizza +")";
         largeTotal.innerHTML="R" + large.toFixed(2);
     }
 
