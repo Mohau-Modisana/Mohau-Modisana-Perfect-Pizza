@@ -36,6 +36,10 @@ const buylarge = document.querySelector(".buylarge");
 
 const cart = document.querySelector(".cart");
 
+//payment amount
+const amountpaid = document.querySelector(".amountpaid");
+
+
 //check out section
 check_out.addEventListener('click', function(){
     check_out.classList.toggle("paybox");
@@ -43,6 +47,12 @@ check_out.addEventListener('click', function(){
 
     pay.addEventListener('click', function(){
         pay.classList.toggle("paybox");
+        if(amountpaid.value>=totalC){
+        alert("Purchase Successful: Thank you for your support");
+        }else{
+            var diff=totalC-amountpaid.value;
+            alert("Purchase Unsuccessful: Payment short of R"+diff.toFixed(2));
+        }
     });
 });
 
